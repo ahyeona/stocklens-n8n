@@ -1,0 +1,15 @@
+name: Keep Render Alive
+
+on:
+  schedule:
+    - cron: "*/14 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Backend
+        run: |
+          echo "🌐 Pinging ${{ secrets.RENDER_BACKEND_URL }}"
+          curl -I -X GET "${{ secrets.RENDER_BACKEND_URL }}"/health || curl -I -X GET "${{ secrets.RENDER_BACKEND_URL }}"
