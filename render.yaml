@@ -37,3 +37,5 @@ services:
         value: n8n
       - key: DART_API_KEY
         sync: false
+      - key: N8N_ENCRYPTION_KEY
+        sync: false
